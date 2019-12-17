@@ -1,0 +1,31 @@
+<div
+  class="auth-layout bg-liquid-cheese"
+  fxLayout="row wrap"
+  fxLayoutGap="20px"
+>
+  <div
+    class="auth-content"
+    fxFlex
+    fxFlex.gt-sm="25"
+    fxflex.gt.xs="50"
+    fxFlexOffset.gt-sm="60"
+    fxflexoffset="0"
+    [@animate]="{ value: '*', params: { duration: '400ms', y: '200px' } }"
+  >
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <auth-login (logged)="onLogged($event)"></auth-login>
+    </mat-card>
+    <div fxFlex="row" fxLayoutAlign="space-between">
+      <a routerLink="embarque" mat-button>Criar conta</a>
+
+      <button mat-button [matMenuTriggerFor]="passwordMenu">
+        <span>Esqueceu?</span>
+      </button>
+    </div>
+  </div>
+</div>
+<mat-menu #passwordMenu="matMenu" xPosition="before">
+  <button mat-menu-item (click)="forgotPassword()">Esqueci minha senha</button>
+  <button mat-menu-item (click)="openResetPassword()">Configurar nova senha</button>
+</mat-menu>
